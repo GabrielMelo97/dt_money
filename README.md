@@ -26,6 +26,7 @@ Aplicação simples para gerenciar finanças,  podendo adicionar todas as entrad
 
 ## 🚀 Como executar
 - Clone o repositório
+- Entre na pasta clonada e execute o comando pelo terminal `npm install` ou `yarn` para instalar as dependências do projeto.
 - Inicie o projeto pelo terminal executando o comando `npm start` ou `yarn start`
 
 Agora você pode acessar [`localhost:3000`](http://localhost:3000) do seu navegador.
