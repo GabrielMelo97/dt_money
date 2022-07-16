@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import { useState } from "react";
 import { NewTransactionModal } from "./components/NewTransactionModal";
 import { TransactionsProvider } from "./hooks/useTransactions";
+import { ToastContainer } from "react-toastify";
 
 Modal.setAppElement('#root');
 
@@ -25,7 +26,7 @@ export function App() {
       <Dashboards />
 
       <NewTransactionModal isOpen={isNewTransactionModalOpen} onRequestClose={handleCloseNewTransactionModal} />
-      
+      < ToastContainer />
       <GlobalStyle />
     </TransactionsProvider>
   );

@@ -47,7 +47,7 @@ export function Summary(){
           <img src={imgOutcome} alt="seta vermelha para baixo" />
         </header>
         <strong>
-          -
+          {summary.withdraw ? '-' : ''}
           {
             new Intl.NumberFormat('pt-br', {
               style: 'currency',

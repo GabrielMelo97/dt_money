@@ -40,5 +40,25 @@ export const Container = styled.div`
         color: var(--red);
       }
     }
+
+    tr{
+      &:first-child{
+        td:first-child{
+          border-bottom-left-radius: 0 !important;
+        }
+        td:last-child{
+          border-bottom-right-radius: 0 !important;
+        }
+      }
+
+      &:last-child{
+        td:first-child{
+          border-top-left-radius: 0 !important;
+        }
+        td:last-child{
+          border-top-right-radius: 0 !important;
+        }
+      }
+    }
   }
 `

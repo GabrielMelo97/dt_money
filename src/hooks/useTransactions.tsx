@@ -1,5 +1,7 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react"; 
 import { api } from "../services/api";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface Transactions {
   id: number;
@@ -19,6 +21,7 @@ interface TransactionProviderProps{
 interface TransactionContextProps {
   transactions: Transactions[];
   createTransaction : (transactions: TransactionInput) => void;
+  removeTransaction : (id: number) => void;
 }
 
 const TransactionsContext = createContext<TransactionContextProps>(
@@ -45,10 +48,40 @@ export function TransactionsProvider({children}: TransactionProviderProps){
       transaction,
       ...transactions
     ])
+
+    toast.success('Transação adicionada!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
+  function removeTransaction(id: number){
+    console.log(id)
+    const transactionRemoved = transactions.filter(transaction => transaction.id !== id)
+
+    console.log(transactionRemoved)
+
+    setTransactions(transactionRemoved)
+
+    toast.success('Transação deletada!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      // theme: "colored"
+    });
   }
 
   return(
-    <TransactionsContext.Provider value={{transactions , createTransaction}}>
+    <TransactionsContext.Provider value={{transactions , createTransaction, removeTransaction}}>
       {children}
     </TransactionsContext.Provider>
   )
